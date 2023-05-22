@@ -12,7 +12,6 @@ int count_of_odds(int *numbers, int length){
 }
 
 int main(){
-
     while(1){
         int length;
         scanf("%d",&length);
