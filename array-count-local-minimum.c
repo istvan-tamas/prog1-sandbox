@@ -2,7 +2,7 @@
 
 int count_of_local_minimums(int *numbers, int length){
     int count = 0;
-    for(int j = 1;j < length; j++){
+    for(int j = 1;j < length - 1; j++){
         if((numbers[j-1] > numbers[j]) && (numbers[j+1] > numbers[j])){
             count++;
         }

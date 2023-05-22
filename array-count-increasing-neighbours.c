@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-int count_of_local_maximums(int *numbers, int length){
+int count_of_increasing_neighbours(int *numbers, int length){
     int count = 0;
-    for(int j = 0;j < length; j++){
-        if((numbers[j-1] < numbers[j]) && (numbers[j+1] < numbers[j])){
+    for(int j = 1;j < length; j++){
+        if(numbers[j] >= numbers[j-1]){
             count++;
         }
     }
@@ -22,7 +22,7 @@ int main(){
         for(int j = 0; j< length;j++){
             scanf("%d",&numbers[j]);
         }
-        printf("%d",count_of_local_maximums(numbers,length));
+        printf("%d",count_of_increasing_neighbours(numbers,length));
 
     }
     return 0;
