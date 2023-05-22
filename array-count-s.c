@@ -12,8 +12,13 @@ int count_of_odds(int *numbers, int length){
 }
 
 int main(){
-    int length;
-    while(scanf("%d",&length) != EOF){
+
+    while(1){
+        int length;
+        scanf("%d",&length);
+        if(length == 0){
+            break;
+        }
         int numbers[length];
         for(int j = 0; j < length;j++){
             scanf("%d",&numbers[j]);
