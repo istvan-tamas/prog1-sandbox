@@ -2,13 +2,12 @@
 #include <string.h>
 
 int is_monotone_decreasing(int *numbers, int length){
-    int flag = 0;
-    for(int j = 1;j < length; j++){
+    for(int j = 0;j < length; j++){
         if(numbers[j] >= numbers[j+1]){
-            flag = 1;
+            return 1;
         }
+        return 0;
     }
-    return flag;
 }
 
 int main(){

@@ -2,8 +2,8 @@
 #include <string.h>
 
 int is_twisting(int *numbers, int length){
-    for(int j = 0;j < length; j++){
-        if(numbers[j] < 0 && numbers[j+1] > 0 || numbers[j] > 0 && numbers[j+1] < 0){
+    for(int j = 1;j < length; j++){
+        if((numbers[j-1]>0 && numbers[j]<0 && numbers[j+1]>0) || (numbers[j-1]<0 && numbers[j]>0 && numbers[j+1]<0)){
             return 1;
         }
     }
