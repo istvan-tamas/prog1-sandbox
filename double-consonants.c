@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 
-int double_consonants(char *original){
+char *double_consonants(char *original){
     char *result = (char *) calloc(strlen(original) * 2 + 1, sizeof(char));
     int j = 0;
     for (int i = 0; i < strlen(original); i++){
