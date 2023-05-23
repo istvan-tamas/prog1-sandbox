@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
-int double_uppers(char *original){
+char *double_uppers(char *original){
     char *result = (char *) calloc(strlen(original) * 2 + 1, sizeof(char));
     int j = 0;
     for (int i = 0; i < strlen(original); i++){
