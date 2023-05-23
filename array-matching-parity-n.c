@@ -1,13 +1,12 @@
 #include <stdio.h>
 
-int count_of_increasing_neighbours(int *numbers, int length){
-    int count = 0;
-    for(int j = 1;j < length; j++){
-        if(numbers[j] >= numbers[j-1]){
-            count++;
+int has_matching_parity(int *numbers, int length){
+    for(int j = 0; j<= length; j++){
+        if(!numbers[j] == j){
+            return 0;
         }
     }
-    return count;
+    return 1;
 }
 
 int main(){
@@ -22,7 +21,7 @@ int main(){
         for(int j = 0; j< length;j++){
             scanf("%d",&numbers[j]);
         }
-        printf("%d",count_of_increasing_neighbours(numbers,length));
+        puts(has_matching_parity(numbers,length) ? "True" : "False");
 
     }
     return 0;
