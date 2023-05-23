@@ -1,25 +1,14 @@
 #include <stdio.h>
 
-
-int count_of_primes(int *numbers, int length){
+int count_of_increasing_neighbours(int *numbers, int length){
     int count = 0;
-    for (int i = 0; i < length; i++) {
-        if (numbers[i] <= 1) {
-            continue;
-        } else {
-            for (int i = 2; i <= numbers[i] / 2; i++) {
-                if (numbers[i] % i == 0) {
-                break;
-            }else{
+    for(int j = 1;j < length; j++){
+        if(numbers[j] >= numbers[j-1]){
             count++;
-            }
-        }
         }
     }
-
     return count;
 }
-
 
 int main(){
     int num_arrays;
@@ -33,7 +22,7 @@ int main(){
         for(int j = 0; j< length;j++){
             scanf("%d",&numbers[j]);
         }
-        printf("%d",count_of_primes(numbers,length));
+        printf("%d",count_of_increasing_neighbours(numbers,length));
 
     }
     return 0;

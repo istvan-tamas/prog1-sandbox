@@ -3,10 +3,8 @@
 
 int count_of_squares(int *numbers, int length){
     int count = 0;
-    for(int j = 0;j < length; j++){
-        if(numbers[j] == 2){
-            count++;
-        }else if(numbers[j] % 2 != 0){
+    for(int j = 0;j <= length; j++){
+        if(sqrt(numbers[j]) - floor(sqrt(numbers[j])) == 0){
             count++;
         }
     }
