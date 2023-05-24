@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 int count_of_primes(int *numbers, int length){
     int count = 0;
