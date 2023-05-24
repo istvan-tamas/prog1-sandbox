@@ -1,22 +1,30 @@
 #include <stdio.h>
-
+#include <math.h>
 
 int count_of_primes(int *numbers, int length){
     int count = 0;
-    for (int i = 0; i < length; i++) {
-        if (numbers[i] <= 1) {
-            continue;
-        } else {
-            for (int i = 2; i <= numbers[i] / 2; i++) {
-                if (numbers[i] % i == 0) {
-                break;
-            }else{
+    for(int i = 0; i < length; i++){
+        if(numbers[i] == 2){
             count++;
+            continue;
+        }
+        if(numbers[i] == 1){
+            continue;
+        }
+        if(numbers[i] != 2){
+            int flag = 1;
+            for(int j = 2; j<numbers[i];j++){
+                if(numbers[i]%j == 0){
+                    flag = 0;
+                    break;
+                }
+            }
+            if(flag){
+                count++;
+                continue;
             }
         }
-        }
     }
-
     return count;
 }
 

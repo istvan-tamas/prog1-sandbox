@@ -32,7 +32,7 @@ int main(){
     ROLLER_COASTER rc[20];
     int length = 0;
     while(1) {
-        gets(line);
+        gets(line );
         if(strcmp(line, "END") == 0) {
             break;
         }
