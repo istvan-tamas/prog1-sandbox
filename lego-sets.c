@@ -21,7 +21,7 @@ int cmp(const void *a, const void *b) {
         return strcmp(left->theme, right->theme);
     }
     if(strcmp(left->name, right->name)){
-       strcmp(left->name, right->name);
+        return strcmp(left->name, right->name);
     }
     if(strcmp(left->code, right->code)){
         return strcmp(left->code, right->code);
