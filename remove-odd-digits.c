@@ -8,7 +8,7 @@ char *delete_digits(char *original){
     int j = 0;
     for (int i = 0; i < strlen(original); i++){
         if (isdigit(original[i])){
-            if(original[i]%2==0){
+            if(original[i]%2 == 0){
                     result[j] = original[i];
                     j++;
                 }
