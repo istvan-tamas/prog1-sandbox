@@ -3,20 +3,14 @@
 int count_of_odds(int *numbers, int length){
     int count = 0;
     for(int i = 0; i<length; i++){
-        int flag = 1;
-        for (int j = 2; j <= numbers[i] / 2; j++) {
-        if (numbers[i] % j == 0) {
-            flag = 0;
-            break;
+        if (numbers[i] % 2 != 0) {
+            count++;
         }
-        if (flag) {
-        count++;
     }
-}
+    return count;
 
 }
-    return count;
-}
+
 
 int main(){
 
