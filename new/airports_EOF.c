@@ -3,6 +3,7 @@
 #include <string.h>
 
 typedef struct {
+    
     char name[31];
     char city[31];
     int runways;
@@ -11,6 +12,7 @@ typedef struct {
 }AIRPORT;
 
 int cmp(const void *a, const void*b){
+
     AIRPORT *left = (AIRPORT *) a;
     AIRPORT *right = (AIRPORT *) b;
 
@@ -28,7 +30,7 @@ int main(int argc, char *argv[]){
 
     AIRPORT airports[20];
     char line[101];
-    int length = 0;
+    int n = 0;
 
     if(argc == 1){
         fprintf(stderr, "Nincsen input megadva!\n");
@@ -44,16 +46,16 @@ int main(int argc, char *argv[]){
 
     while(fgets(line, sizeof(line), file)){
         line[strlen(line)-1] = '\0';
-        strcpy(airports[length].name, strtok(line, ";"));
-        strcpy(airports[length].city, strtok(NULL, ";"));
-        airports[length].runways = atoi(strtok(NULL, ";"));
-        airports[length].time = atoi(strtok(NULL, ";"));
-        length++;
+        strcpy(airports[n].name, strtok(line, ";"));
+        strcpy(airports[n].city, strtok(NULL, ";"));
+        airports[n].runways = atoi(strtok(NULL, ";"));
+        airports[n].time = atoi(strtok(NULL, ";"));
+        n++;
     }
 
     fclose(file);
 
-    qsort(airports, length, sizeof(AIRPORT), cmp);
+    qsort(airports, n, sizeof(AIRPORT), cmp);
     
     if(argc == 2){
         fprintf(stderr, "Nincsen output megadva!\n");
@@ -67,8 +69,8 @@ int main(int argc, char *argv[]){
         return 4;
     }
 
-    for(int i = 0; i< length; i++){
-        fprintf(file, "%s (%s): %d\n", airports[i].name, airports[i].city, airports[i].time);
+    for(int i = 0; i < n; i++){
+        fprintf(file, "%s;%s;%d;%d\n", airports[i].name, airports[i].city,airports[i].runways, airports[i].time);
     }
 
     fclose(file);
