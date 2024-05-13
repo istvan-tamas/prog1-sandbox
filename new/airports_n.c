@@ -29,7 +29,6 @@ int main(int argc, char *argv[]){
     char line[102];
     int n = atoi(gets(line));
     AIRPORT airports[n];
-    
 
     if(argc == 1){
         fprintf(stderr, "Nincsen input\n");
@@ -40,6 +39,8 @@ int main(int argc, char *argv[]){
         fprintf(stderr, "Nem lehet megnyitni a fajlt\n");
         return 2;
     }
+
+
 /*
     while(fgets(line, sizeof(line), file)){
         line[strlen(line)-1] = '\0';

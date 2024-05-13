@@ -8,7 +8,7 @@ typedef struct {
     int runways;
     int time;
 
-} AIRPORT;
+}AIRPORT;
 
 int cmp(const void *a, const void*b){
     AIRPORT *left = (AIRPORT *) a;
@@ -24,19 +24,21 @@ int cmp(const void *a, const void*b){
 
 }
 
-
 int main(int argc, char *argv[]){
-    AIRPORT airports[100];
-    char line[102];
+
+    AIRPORT airports[20];
+    char line[101];
     int length = 0;
 
     if(argc == 1){
-        fprintf(stderr, "Nincsen input\n");
+        fprintf(stderr, "Nincsen input megadva!\n");
         return 1;
     }
+
     FILE *file = fopen(argv[1], "r");
+
     if(!file){
-        fprintf(stderr, "Nem lehet megnyitni a fajlt\n");
+        fprintf(stderr, "Nem lehet megnyitni a bemeneti fajlt!\n");
         return 2;
     }
 
@@ -48,25 +50,28 @@ int main(int argc, char *argv[]){
         airports[length].time = atoi(strtok(NULL, ";"));
         length++;
     }
+
     fclose(file);
+
     qsort(airports, length, sizeof(AIRPORT), cmp);
     
-if(argc == 2){
-    fprintf(stderr, "Nincsen output\n");
-    return 3;
-}
+    if(argc == 2){
+        fprintf(stderr, "Nincsen output megadva!\n");
+        return 3;
+    }
 
-file = fopen(argv[2], "w");
-if(!file){
-    fprintf(stderr, "Nem lehet megnyitni a fajlt\n");
-    return 4;
-}
+    file = fopen(argv[2], "w");
 
-for(int i = 0; i< length; i++){
-    fprintf(file, "%s (%s): %d\n", airports[i].name, airports[i].city, airports[i].time);
-}
+    if(!file){
+        fprintf(stderr, "Nem lehet megnyitni a kimeneti fajlt!\n");
+        return 4;
+    }
 
-fclose(file);
+    for(int i = 0; i< length; i++){
+        fprintf(file, "%s (%s): %d\n", airports[i].name, airports[i].city, airports[i].time);
+    }
+
+    fclose(file);
 
     return EXIT_SUCCESS;
 }
