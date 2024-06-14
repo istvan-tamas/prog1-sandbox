@@ -17,12 +17,15 @@ int cmp(const void *a, const void *b){
     if(left->bricks != right->bricks){
         return -(left->bricks - right->bricks);
     }
-
-    return strcmp(left->theme, right->theme);
-
-    return strcmp(left->name, right->name);
-
-    return strcmp(left->code, right->code);
+    if(strcmp(left->theme, right->theme)){
+        return strcmp(left->theme, right->theme);
+    }
+    if(strcmp(left->name, right->name)){
+        return strcmp(left->name, right->name);
+    }
+    if(strcmp(left->code, right->code)){
+        return strcmp(left->code, right->code);
+    }
 
 }
 
